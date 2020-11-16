@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<lang="en">
+<title>Arrow function syntax as intro for react</title>
+<body>
+    <p id="example"></p>
+    <p id="example2"></p>
+    <p id="example3"></p>
+<script>
+class Car{
+    constructor(name){
+        this.brand=name;
+    }
+    present(){
+        return "I have a "+this.brand;
+    }
+}
+class Model extends Car{
+    constructor(name,mod){
+        super(name);
+        this.model=mod;
+    }
+    show(){
+        return this.present()+' , it is a '+this.model;
+    }
+}
+
+    myCar=new Model("Ford","Mustang");
+    document.write(myCar.show());
+
+    hello=function(){
+        return "hello world";
+    }
+    hi=()=>{
+        return "Hi world";
+    }
+    chao=chao1=>"Hellow "+chao1; //arrow function with only 1 var doesnt need ()
+
+    document.getElementById("example").innerHTML=hello();
+    document.getElementById("example2").innerHTML=hi();
+    document.getElementById("example3").innerHTML=chao("chao");
+
+    
+    
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<lang="en">
+<title>Arrow function vs. regular function</title>
+    <body>
+        <p>Calling a function with this keyword in regular functions-this represents whoever called the function
+           in arrow functions- this represents the object who defined the arrow function</p>
+        <p>This represents:</p>
+        <div id="demo"></div>
+        <button id="btn">Click me</button>
+         <div id="demoArrow"></div>
+         <button id="btnArrow">Click me</button>
+        <script>
+         class Whose{
+             constructor(){
+                 this.color="Red";
+             }
+             changeColor= function() {
+                 document.getElementById("demo").innerHTML+=this;
+             }
+             foo=()=>{
+                 document.getElementById("demoArrow").innerHTML+=this;
+             }
+         } 
+         myObj=new Whose();
+         //the window object call the func and this refers to the window
+         window.addEventListener("load",myObj.changeColor);
+         //the button calls the func and this NOW refers to the button!
+         document.getElementById("btn").addEventListener("click",myObj.changeColor);
+         //in the arrow func: the window calls the func but the this refers to the Whose object no matter who called the func
+         window.addEventListener("load",myObj.foo);
+         document.getElementById("btnArrow").addEventListener("click",myObj.foo);
+        </script>
+    </body>
+</html>
